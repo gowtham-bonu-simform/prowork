@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+.signup{
+  margin-top: 10vh;
+  text-align: center;
+}
+.field{
+  text-align: left;
+}
+*{
+  list-style-type: none;
+}
