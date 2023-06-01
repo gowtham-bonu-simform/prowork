@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  duration: MyText
+  title: MyString
+  job_category: MyString
+  skill: MyString
+  team_size: 1
+  months: 1
+  experience_level: MyString
+  hourly_rate: MyText
+  project_budget: 9.99
+  description: MyText
+  status: MyString
+  user: one
+
+two:
+  duration: MyText
+  title: MyString
+  job_category: MyString
+  skill: MyString
+  team_size: 1
+  months: 1
+  experience_level: MyString
+  hourly_rate: MyText
+  project_budget: 9.99
+  description: MyText
+  status: MyString
+  user: two

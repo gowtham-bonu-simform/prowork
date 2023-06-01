@@ -9,3 +9,5 @@ document.addEventListener('DOMContentLoaded', () => {
       box.style.visibility = 'hidden';
     }, 3000);
 });
+
+//= require bootstrap-tagsinput

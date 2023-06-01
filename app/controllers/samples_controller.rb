@@ -1,5 +1,7 @@
 class SamplesController < ApplicationController
-  before_action :authenticate_user!
+  
 
-  def index; end
+  def index
+    authorize Sample
+  end
 end

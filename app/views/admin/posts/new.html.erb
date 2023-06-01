@@ -1,0 +1,9 @@
+<%= form_with model: @post, url: admin_posts_path do |f| %>
+  <%= f.label :title, 'Write a title for your job post' %>
+  <%= f.text_field :title %>
+
+  <%= f.label :skill, 'What are the main skills required for your work?' %>
+  <%= f.text_field :skill, 'data-role'=>'tagsinput' %>
+
+  <%= f.submit %>
+<% end %>

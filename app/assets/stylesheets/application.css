@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-tagsinput
  */
 .signup{
   margin-top: 10vh;
