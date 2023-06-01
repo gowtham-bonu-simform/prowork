@@ -21,6 +21,11 @@
     </div>
 
     <div class="mb-3 field">
+      <%= label_tag 'role', 'sign in as:' %>
+      <%= select_tag 'role', "<option selected='selected'>freelancer</option><option>client</option>".html_safe, class: "form-control" %>
+    </div>
+
+    <div class="mb-3 field">
       <% if @minimum_password_length %>
       <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (#{@minimum_password_length} characters minimum)", class: "form-control" %>
       <% end %>

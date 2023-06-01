@@ -13,11 +13,13 @@
 
   <body>
     <% flash.each do |name, msg| -%>
-      <% if name == 'alert' %>
-        <div class='alert alert-danger' id = 'alerts'><%= msg %></div>
-      <% else %>
-        <div class='alert alert-success'><%= msg %></div>
-      <% end %>
+      <div id='flash-box'>
+        <% if name == 'alert' %>
+          <div class='alert alert-danger' id = 'alerts'><%= msg %></div>
+        <% else %>
+          <div class='alert alert-success' id = 'alerts'><%= msg %></div>
+        <% end %>
+      </div>
     <% end %>
     <%= yield %>
   </body>
