@@ -2,7 +2,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
   validates :policy, acceptance: true
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
   rolify
   # Include default devise modules. Others available are:

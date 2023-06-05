@@ -9,6 +9,11 @@ class Admin::PostsController < ApplicationController
   end
 
   def create
+    @post = Post.new
     debugger
   end
-end
+
+  # def params_accept
+  #   params.require(:post).permit()
+end 
+

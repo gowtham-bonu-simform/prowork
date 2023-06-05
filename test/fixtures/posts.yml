@@ -2,28 +2,14 @@
 
 one:
   duration: MyText
-  title: MyString
-  job_category: MyString
-  skill: MyString
+  title: 'gowtham'
+  job_category: it
+  skill: ['c']
   team_size: 1
   months: 1
-  experience_level: MyString
+  experience: months
   hourly_rate: MyText
   project_budget: 9.99
-  description: MyText
-  status: MyString
-  user: one
-
-two:
-  duration: MyText
-  title: MyString
-  job_category: MyString
-  skill: MyString
-  team_size: 1
-  months: 1
-  experience_level: MyString
-  hourly_rate: MyText
-  project_budget: 9.99
-  description: MyText
-  status: MyString
-  user: two
+  description: abc
+  status: incomplete
+  user: user_one
