@@ -1,14 +1,10 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  duration: MyText
+post_one:
   title: 'gowtham'
-  job_category: it
-  skill: ['c']
-  team_size: 1
-  months: 1
+  months: ['1', '2']
   experience: months
-  hourly_rate: MyText
+  hourly_rate: ['6', '7']
   project_budget: 9.99
   description: abc
   status: incomplete

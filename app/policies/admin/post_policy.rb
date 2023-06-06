@@ -9,4 +9,8 @@ class Admin::PostPolicy
   def new?
     user.has_role? :client
   end
+
+  def create?
+    user.has_role? :client
+  end
 end

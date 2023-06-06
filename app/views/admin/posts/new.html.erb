@@ -1,5 +1,12 @@
 <div class='card container w-50 pt-5 pb-5 p-4'>
   <h2 class='mb-3'>Post Job</h2>
+  <% if !@post.errors.empty? %>
+      <ul class='alert alert-danger'>
+        <% @post.errors.to_a.each do |error| %>
+          <li><%=error%></li>
+        <% end %>
+      </ul>
+    <% end %>
   <%= form_with model: @post, url: admin_posts_path do |f| %>
     <div class="mb-3 field">
       <%= f.label :title, 'Write a title for your job post', class: "form-label" %>
@@ -20,7 +27,7 @@
       <div class='col-sm-4'></div>
 
       <div class='col-sm-4'>
-        <%= f.label :minimum_span_in_months, class: "form-label" %>
+        <%= f.label :maximum_span_in_months, class: "form-label" %>
         <input name="post[months][]" type="number" min="1" max="11", class="form-control"  />
       </div>
     </div>

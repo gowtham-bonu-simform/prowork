@@ -15,11 +15,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_035448) do
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
-    t.text "duration"
     t.string "title"
-    t.text "months"
+    t.string "months", array: true
     t.string "experience"
-    t.text "hourly_rate"
+    t.string "hourly_rate", array: true
     t.decimal "project_budget"
     t.text "description"
     t.integer "status"
