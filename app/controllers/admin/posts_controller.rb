@@ -2,14 +2,17 @@ class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :create_empty_post, only: [:new]
 
-  def index; end
+  def index
+    @posts = Post.all
+  end
 
-  def new; end
+  def new
+  end
 
   def create
     @post = authorize [:admin, current_user.posts.build(post_params)]
     if @post.save
-      redirect_to root_path, notice: 'successfully created a product'
+      redirect_to root_path
     else
       flash.now[:alert] = 'post not created!'
       render :new, status: :unprocessable_entity

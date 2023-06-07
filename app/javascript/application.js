@@ -11,16 +11,22 @@
 //=require "jquery.sticky"
 //=require "jquery.validate.min"
 //=require "mail-script"
+//=require "slick.min"
 //=require "main"
 //=require "one-page-nav-min"
 //=require "owl.carousel.min"
 //=require "plugins"
 //=require "popper.min"
 //=require "price_rangs"
-//=require "slick.min"
+//=require "wow.min"
 
 import "@hotwired/turbo-rails"
 import "controllers"
+import "popper"
+
+document.querySelectorAll('form').forEach(function (el) {
+  el.dataset.turbo = false
+})
 
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {

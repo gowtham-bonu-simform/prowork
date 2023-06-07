@@ -3,7 +3,7 @@ require "test_helper"
 class Admin::PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:user_one)
-    @user.skip_confirmation!
+    @user.confirm
     @user.add_role :client
     sign_in @user
   end

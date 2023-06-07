@@ -14,16 +14,7 @@
  *= require_self
  *= require font-awesome
  */
-.signup{
-  margin-top: 10vh;
-  text-align: center;
-}
-.field{
-  text-align: left;
-}
-*{
-  list-style-type: none;
-}
+ @import "bootstrap";
 @import "animate.min";
 @import "magnific-popup";
 @import "nice-select";
@@ -62,3 +53,17 @@
 @import "_variables";
 @import "style";
 @import "flaticon";
+
+.signup{
+  margin-top: 10vh;
+  text-align: center;
+}
+.field{
+  text-align: left;
+}
+*{
+  list-style-type: none;
+}
+a{
+  color: #f9176c !important;
+}
