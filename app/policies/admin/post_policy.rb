@@ -7,10 +7,20 @@ class Admin::PostPolicy
   end
 
   def new?
-    user.has_role? :client
+    check_for_client
   end
 
   def create?
-    user.has_role? :client
+    check_for_client
   end
+
+  def edit?
+    check_for_client
+  end
+
+  private
+
+    def check_for_client
+      user.has_role? :client
+    end
 end

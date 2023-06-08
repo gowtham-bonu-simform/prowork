@@ -1,10 +1,13 @@
 class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :create_empty_post, only: [:new]
+  after_action :verify_authorized, only: [:new, :create, :edit]
 
   def index
     @posts = Post.all
   end
+
+  def show; end
 
   def new
   end
@@ -17,6 +20,10 @@ class Admin::PostsController < ApplicationController
       flash.now[:alert] = 'post not created!'
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @post = authorize [:admin, Post.find(params[:id])]
   end
 
   private

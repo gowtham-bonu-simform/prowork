@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   validates :title, :months, :hourly_rate, :experience, :description, presence: true
   validates :title, length: { minimum: 2 }
   validates :description, length: { minimum: 50 }
+  validates :skill_list, presence: true
   validate :months_span
   validate :rate_span
 

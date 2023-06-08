@@ -1,5 +1,5 @@
 <div class='card container w-50 pt-5 pb-5 p-4'>
-  <h2 class='mb-3 text-center'>Post a Job</h2>
+  <h2 class='mb-3 text-center'>Edit Job</h2>
   <% if !@post.errors.empty? %>
       <ul class='alert alert-danger'>
         <% @post.errors.to_a.each do |error| %>
@@ -15,7 +15,7 @@
 
     <div class="mb-3 field">
       <%= f.label :skill_list, "Skills (separated by commas)", class: "form-label" %>
-      <%= f.text_field :skill_list, class: "form-control"  %>
+      <%= f.text_field :skill_list, class: "form-control", value: @post.skill_list.join(", ") %>
     </div>
 
     <div class="mb-3 field">
@@ -62,6 +62,6 @@
     <%= f.label :description, class: "form-label" %>
     <%= f.text_area :description, size: "40x10", class: 'form-control' %>
 
-    <div class="text-center"><%= f.submit "post this job", class: 'btn btn-outline-dark mt-4', data: {turbo: false} %> </div>
+    <div class="text-center"><%= f.submit "edit this job", class: 'btn btn-outline-dark mt-4', data: {turbo: false} %> </div>
   <% end %>
 </div>

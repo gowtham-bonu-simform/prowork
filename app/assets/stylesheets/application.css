@@ -63,3 +63,7 @@
 a{
   color: #f9176c !important;
 }
+.makepink{
+  background-color: #f9176c;
+  border-style: none;
+}

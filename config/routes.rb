@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   namespace :admin do
-    resources :posts, except: [:edit, :update, :destroy, :show]
+    resources :posts
   end
 end
