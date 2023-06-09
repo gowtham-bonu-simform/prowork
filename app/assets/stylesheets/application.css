@@ -67,3 +67,22 @@ a{
   background-color: #f9176c;
   border-style: none;
 }
+.custom_button{
+  color: #f9176c;
+  display: block;
+  border: 1px solid #f9176c;
+  border-radius: 30px;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: white;
+}
+.custom_button:hover{
+  color:white;
+  background: #f9176c;
+  border: 1px solid transparent;
+}
+#flash-box{
+  position: absolute;
+}

@@ -18,6 +18,14 @@ class Admin::PostPolicy
     check_for_client
   end
 
+  def update?
+    check_for_client
+  end
+
+  def destroy?
+    check_for_client
+  end
+
   private
 
     def check_for_client

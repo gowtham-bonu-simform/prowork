@@ -1,3 +1,5 @@
+<%= render 'layouts/preloader' %>
+<%= render 'layouts/header' %>
 <div class='card container w-50 pt-5 pb-5 p-4'>
   <h2 class='mb-3 text-center'>Post a Job</h2>
   <% if !@post.errors.empty? %>
@@ -65,3 +67,4 @@
     <div class="text-center"><%= f.submit "post this job", class: 'btn btn-outline-dark mt-4', data: {turbo: false} %> </div>
   <% end %>
 </div>
+<%= render 'layouts/footer' %>

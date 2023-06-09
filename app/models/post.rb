@@ -15,13 +15,13 @@ class Post < ApplicationRecord
   private
 
     def months_span
-      if months[0] >= months[1]
+      if months!=nil and months[0] >= months[1]
         errors.add(:months, @@error_msg)
       end
     end
 
     def rate_span
-      if hourly_rate[0] >= hourly_rate[1]
+      if hourly_rate!=nil and hourly_rate[0] >= hourly_rate[1]
         errors.add(:hourly_rate, @@error_msg)
       end
     end
