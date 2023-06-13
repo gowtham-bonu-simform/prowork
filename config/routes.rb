@@ -11,9 +11,10 @@ Rails.application.routes.draw do
   scope "switch/" do
     get 'become_freelancer', to: 'switch#become_freelancer', as: 'become_freelancer'
     get 'switch as client', to: 'switch#switch_as_client', as: 'client'
+    get 'switch as freelancer', to: 'switch#switch_as_freelancer', as: 'freelancer'
   end
 
-  namespace :admin do
+  namespace :client do
     resources :posts
   end
 

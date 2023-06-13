@@ -9,7 +9,7 @@
         <% end %>
       </ul>
     <% end %>
-  <%= form_with model: @post, url: admin_posts_path do |f| %>
+  <%= form_with model: @post, url: client_posts_path do |f| %>
     <div class="mb-3 field">
       <%= f.label :title, 'Write a title for your job post', class: "form-label" %>
       <%= f.text_field :title, class: "form-control" %>

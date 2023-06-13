@@ -37,7 +37,7 @@
                 </div>
               </form>
             </div>
-            <div class="makepink col-xl-5 pt-4 text-center"><%= link_to 'post a job', new_admin_post_path, class: "text-white", data: {turbo: false} %></div>
+            <div class="makepink col-xl-5 pt-4 text-center"><%= link_to 'post a job', new_client_post_path, class: "text-white", data: {turbo: false} %></div>
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@
           <div class="single-job-items mb-30">
             <div class="job-items">
               <div class="job-tittle">
-                <%= link_to post.title, admin_post_path(post) %>
+                <%= link_to post.title, client_post_path(post) %>
                 <ul>
                   <li><i class="fas fa-map-marker-alt"></i>Created <%= get_time(post.created_at) %></li>
                   <li>proposals</li>
@@ -72,8 +72,8 @@
               </div>
             </div>
             <div class="items-link" data-turbo="false">
-              <%= link_to 'edit', edit_admin_post_path(post) %>
-              <%= button_to 'destroy', admin_post_path(post), method: :delete, class: "custom_button" %>
+              <%= link_to 'edit', edit_client_post_path(post) %>
+              <%= button_to 'destroy', client_post_path(post), method: :delete, class: "custom_button" %>
             </div>
           </div>
           <% end %>

@@ -1,9 +1,13 @@
-class Admin::PostPolicy
+class Client::PostPolicy
   attr_reader :user, :record
 
   def initialize(user, record)
     @user = user
     @record = record
+  end
+
+  def index?
+    check_for_client
   end
 
   def new?

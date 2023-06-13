@@ -26,9 +26,9 @@
               <!-- Header-btn -->
               <div class="header-btn d-none f-right d-lg-block" data-turbo="false">
                 <% if current_user.has_role? :freelancer %>
-                <%= button_to "switch to freelancer", "", class: 'btn head-btn2' %> 
+                <%= link_to "switch to freelancer", freelancer_path, class: 'btn head-btn2 make-white' %> 
                 <% else %>
-                <%= link_to "become a freelancer?", become_freelancer_path, class: 'btn head-btn2' %> 
+                <%= link_to "become a freelancer?", become_freelancer_path, class: 'btn head-btn2 make-white' %> 
                 <% end %>
                 <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn head-btn1' %> 
               </div>
