@@ -1,0 +1,162 @@
+<%= render 'layouts/preloader' %>
+<header>
+  <!-- Header Start -->
+  <div class="header-area header-transparrent">
+    <div class="headder-top header-sticky">
+      <div class="container">
+        <div class="row align-items-center d-flex justify-content-between">
+          <div class="col-lg-3 col-md-2">
+            <!-- Logo -->
+            <div class="logo">
+              <%= image_tag "logo/logo.png", alt: "" %>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-2">
+            <div class="menu-wrapper">
+              <!-- Main-menu -->
+              <!-- Header-btn -->
+              <div class="header-btn d-none f-right d-lg-block">
+                <%= link_to 'switch as client', client_path, data: {turbo: false}, class: 'btn head-btn2 make-white'  %>
+                <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn head-btn1' %>
+              </div>
+            </div>
+          </div>
+          <!-- Mobile Menu -->
+          <div class="col-12">
+            <div class="mobile_menu d-block d-lg-none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Header End -->
+</header>
+<div class='card container w-50 pt-5 pb-5 p-4'>
+  <h2 class='mb-3 text-center'>Build your profile</h2>
+  <%= form_with model: @profile, url: freelancer_profile_index_path do |f| %>
+    <div class="mb-3 field">
+      <%= f.label :professional_role, 'Add a role to tell the world what you do', class: "form-label" %>
+      <%= f.text_field :professional_role, class: "form-control" %>
+    </div>
+
+    Experiences:
+    <%= f.fields_for :experiences do |e_f| %>
+      <div class="mb-3 field">
+        <%= e_f.label :title, 'Tite*', class: "form-label", placeholder: 'Ex: Software Engineer' %>
+        <%= e_f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="mb-3 field">
+        <%= e_f.label :company, 'Company*', class: "form-label", placeholder: 'Ex: Microsoft' %>
+        <%= e_f.text_field :company, class: "form-control" %>
+      </div>
+      <div class="mb-3 field">
+        <%= e_f.label :location, class: "form-label" %>
+        <%= e_f.text_field :location, class: "form-control" %>
+      </div>
+      <div class="mb-3 field">
+        <%= e_f.select :country, ['India', 'America', 'Japan', 'China', 'Europe'], {}, class: 'form-control' %>
+      </div>
+      <div class="mb-3 field">
+        <%= e_f.label :start_date, 'Start Date*', class: "form-label" %>
+        <%= e_f.date_field :start_date, class: "form-control", max: Date.today %>
+      </div>
+      <div class="mb-3 field">
+        <%= e_f.label :end_date, 'End Date*', class: "form-label" %>
+        <%= e_f.date_field :end_date, class: "form-control", max: Date.today %>
+      </div>
+      <div class="mb-3 field">
+        <%= e_f.label :description, class: "form-label" %>
+        <%= e_f.text_area :description, class: "form-control", size: '50x7' %>
+      </div>
+    <% end %>
+
+    Education_histories:
+    <%= f.fields_for :education_histories do |e_h| %>
+      <div class="mb-3 field">
+        <%= e_h.label :school, 'School*', class: "form-label", placeholder: 'Ex: Parul University' %>
+        <%= e_h.text_field :school, class: "form-control" %>
+      </div>
+
+      <div class="mb-3 field">
+        <%= e_h.label :degree, class: "form-label" %>
+        <%= e_h.select :degree, ['BTech', 'MTech', 'BBA', 'MBA'], {}, class: "form-control" %>
+      </div>
+
+      <div class="mb-3 field">
+        <%= e_h.label :study_field, class: "form-label" %>
+        <%= e_h.select :study_field, ['ECE', 'CSC', 'Mech'], {}, class: "form-control" %>
+      </div>
+
+      <div class="mb-3 field">
+        <%= e_h.label :from, class: "form-label" %>
+        <%= e_h.date_field :from, class: "form-control", max: Date.today %>
+      </div>
+
+      <div class="mb-3 field">
+        <%= e_h.label :to, 'To(or expected graduation year)', class: "form-label" %>
+        <%= e_h.date_field :to, class: "form-control" %>
+      </div>
+
+      <div class="mb-3 field">
+        <%= e_h.label :description, class: "form-label" %>
+        <%= e_h.text_area :description, class: "form-control", size: '50x7', placeholder: 'Describe your studies, awards, etc..' %>
+      </div>
+    <% end %>
+
+    Certifications:
+    <%= f.fields_for :certifications do |c| %>
+      <div class="mb-3 field">
+        <%= c.label :issue_date, class: "form-label" %>
+        <%= c.date_field :issue_date, class: "form-control", max: Date.today %>
+      </div>
+      
+      <div class="mb-3 field">
+        <%= c.label :expiration_date, 'Expiration Date(Optional)', class: "form-label" %>
+        <%= c.date_field :expiration_date, class: "form-control" %>
+      </div>
+
+      <div class="mb-3 field">
+        <%= c.label :certification_id, 'Certfication ID(Optional)', class: "form-label" %>
+        <%= c.text_field :certification_id, class: "form-control" %>
+      </div>
+
+      <div class="mb-3 field">
+        <%= c.label :certification_url, 'Certfication URL(Optional)', class: "form-label" %>
+        <%= c.text_field :certification_url, class: "form-control" %>
+      </div>
+    <% end %>
+
+    Languages:
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Langauge (english is mandatory)</th>
+            <th scope="col">Proficiency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= f.fields_for :languages do |l| %>
+            <tr>
+              <td>
+                <%= l.select :name, ['English', 'Telugu'], {}, class: 'form-control' %>
+              </td>
+              <td>
+                <%= l.select :proficiency, ['Basic', 'Intermediate', 'Advance'], {}, class: 'form-control' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    <div class="mb-3 field">
+      <%= f.label :skill_list, "Skills (separated by commas)", class: "form-label" %>
+      <%= f.text_field :skill_list, class: "form-control"  %>
+    </div>
+
+    <div class="mb-3 field">
+      <%= f.label :bio, "Write a bio to tell the world about yourself", class: "form-label" %>
+      <%= f.text_area :bio, size: '50x7', class: "form-control", placeholder: 'Enter your skills, experiences and interests. This is one of the first things clients will see on your profile'  %>
+    </div>
+    <div class='text-center'><%= f.submit class: 'btn btn-outline-dark' %></div>
+  <% end %>
+</div>
