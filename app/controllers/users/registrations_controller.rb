@@ -62,7 +62,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def call_me
-    role = params[:role]
     role = params[:role] == 'client' ? :client : :freelancer
     @user.add_role role
   end
