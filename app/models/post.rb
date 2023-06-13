@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   validates :skill_list, presence: true
   validate :months_span
   validate :rate_span
+  validate :max_skills
 
   belongs_to :user
 
@@ -23,6 +24,13 @@ class Post < ApplicationRecord
     def rate_span
       if hourly_rate!=nil and hourly_rate[0] >= hourly_rate[1]
         errors.add(:hourly_rate, @@error_msg)
+      end
+    end
+
+    def max_skills
+      if skill_list.count > 10
+        debugger
+        errors.add(:skill_list, 'maximum 10 skills can be added')
       end
     end
 end

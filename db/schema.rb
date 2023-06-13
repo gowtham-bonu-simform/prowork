@@ -10,23 +10,86 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_05_035448) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_103057) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.string "months", array: true
-    t.string "experience"
-    t.string "hourly_rate", array: true
-    t.decimal "project_budget"
+  create_table "certifications", force: :cascade do |t|
+    t.date "issue_date", null: false
+    t.date "expiration_date"
+    t.string "certification_id"
+    t.string "certification_url"
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_certifications_on_profile_id"
+  end
+
+  create_table "education_histories", force: :cascade do |t|
+    t.string "school", null: false
+    t.string "degree"
+    t.string "study_field"
+    t.date "from"
+    t.date "to"
     t.text "description"
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_education_histories_on_profile_id"
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.string "company", null: false
+    t.string "title", null: false
+    t.string "location"
+    t.string "country", null: false
+    t.date "start_date", null: false
+    t.date "end_date", null: false
+    t.text "description"
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_experiences_on_profile_id"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "proficiency", null: false
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_languages_on_profile_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "months", null: false, array: true
+    t.string "experience", null: false
+    t.string "hourly_rate", null: false, array: true
+    t.decimal "project_budget"
+    t.text "description", null: false
     t.integer "status"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_posts_on_title"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "professional_role", null: false
+    t.text "bio", null: false
+    t.decimal "hourly_rate", null: false
+    t.string "postal_code"
+    t.string "phone", null: false
+    t.string "country", null: false
+    t.string "street_address", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -104,6 +167,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_035448) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "certifications", "profiles"
+  add_foreign_key "education_histories", "profiles"
+  add_foreign_key "experiences", "profiles"
+  add_foreign_key "languages", "profiles"
   add_foreign_key "posts", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "taggings", "tags"
 end
