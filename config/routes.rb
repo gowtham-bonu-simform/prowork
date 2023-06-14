@@ -18,7 +18,6 @@ Rails.application.routes.draw do
     resources :posts
   end
 
-  namespace :freelancer do
-    resources :profile
-  end
+  resource :profile, module: 'freelancer', controller: :profile
+  resolve('Profile') { [:profile] }
 end

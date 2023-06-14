@@ -1,7 +1,6 @@
-<%= render 'layouts/preloader' %>
 <header>
   <!-- Header Start -->
-  <div class="header-area header-transparrent">
+  <div class="header-area header-transparrent mt-3 mb-3">
     <div class="headder-top header-sticky">
       <div class="container">
         <div class="row align-items-center d-flex justify-content-between">
@@ -33,7 +32,14 @@
 </header>
 <div class='card container w-50 pt-5 pb-5 p-4'>
   <h2 class='mb-3 text-center'>Build your profile</h2>
-  <%= form_with model: @profile, url: freelancer_profile_index_path do |f| %>
+  <% if !@profile.errors.empty? %>
+      <ul class='alert alert-danger'>
+        <% @profile.errors.to_a.each do |error| %>
+          <li><%=error%></li>
+        <% end %>
+      </ul>
+  <% end %>
+  <%= form_with model: @profile, url: profile_path do |f| %>
     <div class="mb-3 field">
       <%= f.label :professional_role, 'Add a role to tell the world what you do', class: "form-label" %>
       <%= f.text_field :professional_role, class: "form-control" %>
@@ -61,7 +67,7 @@
         <%= e_f.date_field :start_date, class: "form-control", max: Date.today %>
       </div>
       <div class="mb-3 field">
-        <%= e_f.label :end_date, 'End Date*', class: "form-label" %>
+        <%= e_f.label :end_date, 'End Date/Today( if currently working in the company )*', class: "form-label" %>
         <%= e_f.date_field :end_date, class: "form-control", max: Date.today %>
       </div>
       <div class="mb-3 field">
@@ -157,6 +163,47 @@
       <%= f.label :bio, "Write a bio to tell the world about yourself", class: "form-label" %>
       <%= f.text_area :bio, size: '50x7', class: "form-control", placeholder: 'Enter your skills, experiences and interests. This is one of the first things clients will see on your profile'  %>
     </div>
+
+    <div class="mb-3 field">
+      <%= f.label :service_list, "Services (separated by commas)", class: "form-label" %>
+      <%= f.text_field :service_list, class: "form-control"  %>
+    </div>
+
+    <div class="mb-3 field">
+      <%= f.label :hourly_rate, "Set your hourly rate(dollars per hour)", class: "form-label" %>
+      <%= f.number_field :hourly_rate, in: 3..999, step: 0.1, class: "form-control"  %>
+    </div>
+
+    <div class="mb-3 field">
+      <%= f.label :country, "Country*", class: "form-label" %>
+      <%= f.select :country, ['India', 'America', 'Japan', 'China', 'Europe'], {}, class: "form-control"  %>
+    </div>
+
+    <div class="mb-3 field">
+      <%= f.label :street_address, "Street address*", class: "form-label" %>
+      <%= f.text_field :street_address, class: "form-control"  %>
+    </div>
+
+    <div class="mb-3 field">
+      <%= f.label :city, "City*", class: "form-label" %>
+      <%= f.text_field :city, class: "form-control"  %>
+    </div>
+
+    <div class="mb-3 field">
+      <%= f.label :state, "State/Province", class: "form-label" %>
+      <%= f.text_field :state, class: "form-control"  %>
+    </div>
+
+    <div class="mb-3 field">
+      <%= f.label :postal_code, "ZIP/Postal Code", class: "form-label" %>
+      <%= f.text_field :postal_code, class: "form-control"  %>
+    </div>
+
+    <div class="mb-3 field">
+      <%= f.label :phone, class: "form-label" %>
+      <%= f.text_field :phone, class: "form-control"  %>
+    </div>
+
     <div class='text-center'><%= f.submit class: 'btn btn-outline-dark' %></div>
   <% end %>
 </div>

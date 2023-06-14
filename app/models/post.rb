@@ -29,7 +29,6 @@ class Post < ApplicationRecord
 
     def max_skills
       if skill_list.count > 10
-        debugger
         errors.add(:skill_list, 'maximum 10 skills can be added')
       end
     end
