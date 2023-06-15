@@ -10,6 +10,7 @@
 //=require "jquery.slicknav.min"
 //=require "jquery.sticky"
 //=require "jquery.validate.min"
+//= require cocoon
 //=require "mail-script"
 //=require "slick.min"
 //=require "main"

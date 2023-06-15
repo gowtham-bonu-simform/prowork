@@ -32,127 +32,65 @@
 </header>
 <div class='card container w-50 pt-5 pb-5 p-4'>
   <h2 class='mb-3 text-center'>Build your profile</h2>
-  <% if !@profile.errors.empty? %>
-      <ul class='alert alert-danger'>
-        <% @profile.errors.to_a.each do |error| %>
-          <li><%=error%></li>
-        <% end %>
-      </ul>
-  <% end %>
+  <%= render 'layouts/errors', record: @profile %>
   <%= form_with model: @profile, url: profile_path do |f| %>
     <div class="mb-3 field">
       <%= f.label :professional_role, 'Add a role to tell the world what you do', class: "form-label" %>
       <%= f.text_field :professional_role, class: "form-control" %>
     </div>
 
-    Experiences:
-    <%= f.fields_for :experiences do |e_f| %>
-      <div class="mb-3 field">
-        <%= e_f.label :title, 'Tite*', class: "form-label", placeholder: 'Ex: Software Engineer' %>
-        <%= e_f.text_field :title, class: "form-control" %>
-      </div>
-      <div class="mb-3 field">
-        <%= e_f.label :company, 'Company*', class: "form-label", placeholder: 'Ex: Microsoft' %>
-        <%= e_f.text_field :company, class: "form-control" %>
-      </div>
-      <div class="mb-3 field">
-        <%= e_f.label :location, class: "form-label" %>
-        <%= e_f.text_field :location, class: "form-control" %>
-      </div>
-      <div class="mb-3 field">
-        <%= e_f.select :country, ['India', 'America', 'Japan', 'China', 'Europe'], {}, class: 'form-control' %>
-      </div>
-      <div class="mb-3 field">
-        <%= e_f.label :start_date, 'Start Date*', class: "form-label" %>
-        <%= e_f.date_field :start_date, class: "form-control", max: Date.today %>
-      </div>
-      <div class="mb-3 field">
-        <%= e_f.label :end_date, 'End Date/Today( if currently working in the company )*', class: "form-label" %>
-        <%= e_f.date_field :end_date, class: "form-control", max: Date.today %>
-      </div>
-      <div class="mb-3 field">
-        <%= e_f.label :description, class: "form-label" %>
-        <%= e_f.text_area :description, class: "form-control", size: '50x7' %>
-      </div>
-    <% end %>
+    <div id='experiences'>
+      <%= f.fields_for :experiences do |e_f| %>
+          <%= render 'experience_fields', :f => e_f %>
+          <hr />  
+        <% end %>
+    <div class='links mb-3'>
+      <%= link_to_add_association 'add experience', f, :experiences, class: 'btn head-btn2 make-white' %>
+    </div>
+    </div>
 
-    Education_histories:
-    <%= f.fields_for :education_histories do |e_h| %>
-      <div class="mb-3 field">
-        <%= e_h.label :school, 'School*', class: "form-label", placeholder: 'Ex: Parul University' %>
-        <%= e_h.text_field :school, class: "form-control" %>
-      </div>
+    <div id='education_histories'>
+      <%= f.fields_for :education_histories do |e_h| %>
+          <%= render 'education_history_fields', :f => e_h %>
+          <hr />  
+        <% end %>
+    <div class='links mb-3'>
+      <%= link_to_add_association 'add education', f, :education_histories, class: 'btn head-btn2 make-white' %>
+    </div>
+    </div>
 
-      <div class="mb-3 field">
-        <%= e_h.label :degree, class: "form-label" %>
-        <%= e_h.select :degree, ['BTech', 'MTech', 'BBA', 'MBA'], {}, class: "form-control" %>
-      </div>
-
-      <div class="mb-3 field">
-        <%= e_h.label :study_field, class: "form-label" %>
-        <%= e_h.select :study_field, ['ECE', 'CSC', 'Mech'], {}, class: "form-control" %>
-      </div>
-
-      <div class="mb-3 field">
-        <%= e_h.label :from, class: "form-label" %>
-        <%= e_h.date_field :from, class: "form-control", max: Date.today %>
-      </div>
-
-      <div class="mb-3 field">
-        <%= e_h.label :to, 'To(or expected graduation year)', class: "form-label" %>
-        <%= e_h.date_field :to, class: "form-control" %>
-      </div>
-
-      <div class="mb-3 field">
-        <%= e_h.label :description, class: "form-label" %>
-        <%= e_h.text_area :description, class: "form-control", size: '50x7', placeholder: 'Describe your studies, awards, etc..' %>
-      </div>
-    <% end %>
-
-    Certifications:
-    <%= f.fields_for :certifications do |c| %>
-      <div class="mb-3 field">
-        <%= c.label :issue_date, class: "form-label" %>
-        <%= c.date_field :issue_date, class: "form-control", max: Date.today %>
-      </div>
-      
-      <div class="mb-3 field">
-        <%= c.label :expiration_date, 'Expiration Date(Optional)', class: "form-label" %>
-        <%= c.date_field :expiration_date, class: "form-control" %>
-      </div>
-
-      <div class="mb-3 field">
-        <%= c.label :certification_id, 'Certfication ID(Optional)', class: "form-label" %>
-        <%= c.text_field :certification_id, class: "form-control" %>
-      </div>
-
-      <div class="mb-3 field">
-        <%= c.label :certification_url, 'Certfication URL(Optional)', class: "form-label" %>
-        <%= c.text_field :certification_url, class: "form-control" %>
-      </div>
-    <% end %>
+    <div id='certifications'>
+      <%= f.fields_for :certifications do |c| %>
+          <%= render 'certification_fields', :f => c %>
+          <hr />  
+        <% end %>
+    <div class='links mb-3'>
+      <%= link_to_add_association 'add certification', f, :certifications, class: 'btn head-btn2 make-white' %>
+    </div>
+    </div>
 
     Languages:
-      <table class="table">
-        <thead>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Langauge (english is mandatory)</th>
+          <th scope="col">Proficiency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= f.fields_for :languages do |l| %>
           <tr>
-            <th scope="col">Langauge (english is mandatory)</th>
-            <th scope="col">Proficiency</th>
+            <td>
+              <%= l.select :name, ['English', 'Telugu'], selected: 'English', disabled: ['Telugu'] %>
+            </td>
+            <%= render 'language_fields', :f => l %>
           </tr>
-        </thead>
-        <tbody>
-          <%= f.fields_for :languages do |l| %>
-            <tr>
-              <td>
-                <%= l.select :name, ['English', 'Telugu'], {}, class: 'form-control' %>
-              </td>
-              <td>
-                <%= l.select :proficiency, ['Basic', 'Intermediate', 'Advance'], {}, class: 'form-control' %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+        <% end %>
+        <div class='links mb-3'>
+          <%= link_to_add_association 'add language', f, :languages, class: 'btn head-btn2 make-white' %>
+        </div>
+      </tbody>
+    </table>
 
     <div class="mb-3 field">
       <%= f.label :skill_list, "Skills (separated by commas)", class: "form-label" %>
@@ -204,6 +142,6 @@
       <%= f.text_field :phone, class: "form-control"  %>
     </div>
 
-    <div class='text-center'><%= f.submit class: 'btn btn-outline-dark' %></div>
+    <div class='text-center' data-turbo='false'><%= f.submit class: 'btn btn-outline-dark' %></div>
   <% end %>
 </div>

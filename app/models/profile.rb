@@ -14,12 +14,13 @@ class Profile < ApplicationRecord
     assoc.has_many :languages
     assoc.has_many :certifications
   end
-  accepts_nested_attributes_for :experiences, :education_histories, :languages, :certifications
+  accepts_nested_attributes_for :experiences, :education_histories, :languages, :certifications, reject_if: :all_blank, allow_destroy: true
 
   acts_as_taggable_on :skills
   acts_as_taggable_on :services
 
   after_create :english_must_exist
+  after_create :languages_must_be_unique
 
   private
 
@@ -33,6 +34,14 @@ class Profile < ApplicationRecord
     def max_skills
       if skill_list.count > 15
         errors.add(:skill_list, 'maximum 15 skills can be added')
+      end
+    end
+
+    def languages_must_be_unique
+      #debugger
+      unless languages.pluck(:name).uniq!.nil?
+        errors.add(:base, 'selected languages must be uniue')
+        raise ActiveRecord::Rollback
       end
     end
 end

@@ -1,0 +1,26 @@
+<div class='nested-fields card p-3 mb-3'>
+  <h3 class='mb-3'>certification</h3>
+  <div class="mb-3 mt-5 field">
+    <%= f.label :issue_date, class: "form-label" %>
+    <%= f.date_field :issue_date, class: "form-control", max: Date.today %>
+  </div>
+  
+  <div class="mb-3 field">
+    <%= f.label :expiration_date, 'Expiration Date(Optional)', class: "form-label" %>
+    <%= f.date_field :expiration_date, class: "form-control" %>
+  </div>
+
+  <div class="mb-3 field">
+    <%= f.label :certification_id, 'Certfication ID(Optional)', class: "form-label" %>
+    <%= f.text_field :certification_id, class: "form-control" %>
+  </div>
+
+  <div class="mb-3 field">
+    <%= f.label :certification_url, 'Certfication URL(Optional)', class: "form-label" %>
+    <%= f.text_field :certification_url, class: "form-control" %>
+  </div>
+
+  <div class='links'>
+    <%= link_to_remove_association "remove certfication", f, class: 'btn head-btn1 make-white'%>
+  </div>
+</div>

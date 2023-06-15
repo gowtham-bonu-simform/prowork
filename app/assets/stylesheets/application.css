@@ -86,6 +86,6 @@ a{
 #flash-box{
   position: absolute;
 }
-.make-white{
-  color: white;
+.make-white:hover{
+  color: white !important;
 }

@@ -1,14 +1,7 @@
-<%= render 'layouts/preloader' %>
 <%= render 'layouts/header' %>
 <div class='card container w-50 pt-5 pb-5 p-4'>
   <h2 class='mb-3 text-center'>Post a Job</h2>
-  <% if !@post.errors.empty? %>
-      <ul class='alert alert-danger'>
-        <% @post.errors.to_a.each do |error| %>
-          <li><%=error%></li>
-        <% end %>
-      </ul>
-  <% end %>
+  <%= render 'layouts/errors', record: @post %>
   <%= form_with model: @post, url: client_posts_path do |f| %>
     <div class="mb-3 field">
       <%= f.label :title, 'Write a title for your job post', class: "form-label" %>
