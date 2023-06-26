@@ -18,6 +18,13 @@ Rails.application.routes.draw do
     resources :posts
   end
 
-  resource :profile, module: 'freelancer', controller: :profile
+  resource :profile, module: 'freelancer', controller: :profile do
+    collection do
+      get 'experiences'
+      get 'education'
+      get 'languages'
+      get 'certifications'
+    end
+  end
   resolve('Profile') { [:profile] }
 end

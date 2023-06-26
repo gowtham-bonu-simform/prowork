@@ -10,6 +10,7 @@ class Post < ApplicationRecord
   validate :max_skills
 
   belongs_to :user
+  after_create :english_must_exist
 
   acts_as_taggable_on :skills
 

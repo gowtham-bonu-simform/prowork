@@ -33,7 +33,7 @@
 
 <div class='card container w-50 pt-5 pb-5 p-4'>
   <%= render partial: 'progress', locals: { current_page: 'info' } %>
-  <h2 class='mb-3 text-center'>Build your profile</h2>
+  <h2 class='mt-3 text-center'>Edit your profile</h2>
   <%= render 'layouts/errors', record: @profile %>
   <%= form_with model: @profile, url: profile_path do |f| %>
     <%= f.hidden_field :current_page, value: 'info' %>
@@ -92,6 +92,6 @@
       <%= f.text_field :phone, class: "form-control"  %>
     </div>
 
-    <div class='text-center' data-turbo='false'><%= f.submit 'add experiences' ,class: 'btn btn-outline-dark' %></div>
+    <div class='text-center' data-turbo='false'><%= f.submit 'edit profile' ,class: 'btn btn-outline-dark' %></div>
   <% end %>
 </div>

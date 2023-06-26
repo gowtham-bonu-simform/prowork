@@ -1,0 +1,22 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <% if current_user.profile %>
+      <a class="nav-link <%= current_page == 'info' ? 'active' : '' %>" aria-current="page" href="/profile/edit">Info</a>
+    <% else %>
+      <%# <%= debugger %>
+      <a class="nav-link <%= current_page == 'info' ? 'active' : '' %>" aria-current="page" href="/profile/new">Info</a>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link  <%= current_page == 'experiences' ? 'active' : '' %>" href="/profile/experiences">Experiences</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= current_page == 'education' ? 'active' : '' %>" href="/profile/education">Education</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= current_page == 'certifications' ? 'active' : '' %>" href="/profile/certifications">Certifcations</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= current_page == 'languages' ? 'active' : '' %>" href="/profile/languages">Langugaes</a>
+  </li>
+</ul>

@@ -3,7 +3,7 @@ class CreateCertifications < ActiveRecord::Migration[7.0]
     create_table :certifications do |t|
       t.date :issue_date, null: false
       t.date :expiration_date
-      t.string :certification_id
+      t.string :cert_id
       t.string :certification_url
       t.belongs_to :profile, null: false, foreign_key: true
 

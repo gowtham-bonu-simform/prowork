@@ -14,7 +14,7 @@ Post.create! ([
     hourly_rate: [4, 5],
     project_budget: 20,
     description: 'this project is the first one in seed data and iuhfd sklfhn bwjshgf k;ehf aksjdhf',
-    user_id: 29,
+    user_id: 33,
     skill_list: ["c", "java"]
   },
   {
@@ -24,7 +24,7 @@ Post.create! ([
     hourly_rate: [6, 7],
     project_budget: 25,
     description: 'thiswefsf qywgfuyewqgrfd ct is the first one in seed data and iuhfd sklfhn bwjshgf k;ehf aksjdhf',
-    user_id: 29,
+    user_id: 33,
     skill_list: ["c", "java"]
   },
   {
@@ -34,7 +34,7 @@ Post.create! ([
     hourly_rate: [2, 7],
     project_budget: 215,
     description: 'thisddasssssssssswefsf qywgfuewqgrfd ct is the first one in seed data and iuhfd sklfhn bwjshgf k;ehf aksjdhf',
-    user_id: 29,
+    user_id: 33,
     skill_list: ["c", "java"]
   }
 ])
