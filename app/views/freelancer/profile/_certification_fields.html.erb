@@ -1,12 +1,14 @@
 <div class='nested-fields'>
-  <div class="mb-3 mt-5 field">
-    <%= f.label :issue_date, class: "form-label" %>
-    <%= f.date_field :issue_date, class: "form-control", max: Date.today %>
-  </div>
-  
-  <div class="mb-3 field">
+  <div class='row d-flex justify-content-between'>
+    <div class="mb-3 field col-sm-6">
+      <%= f.label :issue_date, 'Issue Date*', class: "form-label" %>
+      <%= f.date_field :issue_date, class: "form-control", max: Date.today %>
+    </div>
+
+  <div class="mb-3 field col-sm-6">
     <%= f.label :expiration_date, 'Expiration Date(Optional)', class: "form-label" %>
     <%= f.date_field :expiration_date, class: "form-control" %>
+  </div>
   </div>
 
   <div class="mb-3 field">
@@ -19,7 +21,7 @@
     <%= f.text_field :certification_url, class: "form-control" %>
   </div>
 
-  <div class='links'>
-    <%= link_to_remove_association "remove certfication", f, class: 'btn head-btn1 make-white'%>
+  <div class='links text-end'>
+    <%= link_to_remove_association "remove certification", f, class: 'btn btn-outline-danger make-white'%>
   </div>
 </div>

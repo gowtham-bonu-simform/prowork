@@ -10,8 +10,8 @@
           <%= render 'certification_fields', :f => c %>
           <hr />  
         <% end %>
-        <div class='links mb-3'>
-          <%= link_to_add_association 'add certification', f, :certifications, class: 'btn head-btn2 make-white' %>
+        <div class='links mb-3 text-end'>
+          <%= link_to_add_association 'add certification', f, :certifications, class: 'btn btn-outline-danger make-white' %>
         </div>
     </div>
     <div class='text-center' data-turbo='false'><%= f.submit 'add languages' ,class: 'btn btn-outline-dark' %></div>

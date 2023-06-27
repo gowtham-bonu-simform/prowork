@@ -10,8 +10,8 @@
         <%= render 'education_history_fields', :f => e_h %>
         <hr />  
       <% end %>
-      <div class='links mb-3'>
-        <%= link_to_add_association 'complete profile', f, :education_histories, class: 'btn head-btn2 make-white' %>
+      <div class='links mb-3 text-end'>
+        <%= link_to_add_association 'add education', f, :education_histories, class: 'btn btn-outline-danger make-white' %>
       </div>
     </div>
     <div class='text-center' data-turbo='false'><%= f.submit 'add certifications' ,class: 'btn btn-outline-dark' %></div>

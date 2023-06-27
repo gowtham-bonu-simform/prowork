@@ -1,36 +1,4 @@
-<header>
-  <!-- Header Start -->
-  <div class="header-area header-transparrent mt-3 mb-3">
-    <div class="headder-top header-sticky">
-      <div class="container">
-        <div class="row align-items-center d-flex justify-content-between">
-          <div class="col-lg-3 col-md-2">
-            <!-- Logo -->
-            <div class="logo">
-              <%= image_tag "logo/logo.png", alt: "" %>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-2">
-            <div class="menu-wrapper">
-              <!-- Main-menu -->
-              <!-- Header-btn -->
-              <div class="header-btn d-none f-right d-lg-block">
-                <%= link_to 'switch as client', client_path, data: {turbo: false}, class: 'btn head-btn2 make-white'  %>
-                <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn head-btn1' %>
-              </div>
-            </div>
-          </div>
-          <!-- Mobile Menu -->
-          <div class="col-12">
-            <div class="mobile_menu d-block d-lg-none"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Header End -->
-</header>
-
+<%= render 'mini_header' %>
 <div class='card container w-50 pt-5 pb-5 p-4'>
   <%= render partial: 'progress', locals: { current_page: 'info' } %>
   <h2 class='mt-3 text-center'>Edit your profile</h2>

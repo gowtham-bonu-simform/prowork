@@ -5,15 +5,15 @@
   <%= render 'layouts/errors', record: @profile %>
   <%= form_with model: @profile do |f| %>
     <%= f.hidden_field :current_page, value: 'languages' %>
-    Languages:(please select english)<br />
     <div id='languages'>
       <%= f.fields_for :languages do |l| %>
+        <%= f.hidden_field :current_page, value: 'languages' %>
         <%= render 'language_fields', :f => l %>
       <% end %>
-      <div class='links mb-3'>
-        <%= link_to_add_association 'add languages', f, :languages, class: 'btn head-btn2 make-white', :data => {"association-insertion-method" => "prepend" }, render_options: { wrapper: 'bootstrap' }  %>
+      <div class='links mb-3 text-end'>
+        <%= link_to_add_association 'add languages', f, :languages, class: 'btn btn-outline-danger make-white', :data => {"association-insertion-method" => "prepend" }, render_options: { wrapper: 'bootstrap' }  %>
       </div>
     </div>
-    <div class='text-center' data-turbo='false'><%= f.submit 'complete profile' ,class: 'btn btn-outline-dark' %></div>
+    <div class='text-center' data-turbo='false'><%= f.submit 'complete profile', class: 'btn btn-outline-dark' %></div>
   <% end %>
 </div>

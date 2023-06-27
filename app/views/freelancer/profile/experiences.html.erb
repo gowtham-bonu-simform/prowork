@@ -10,8 +10,8 @@
         <%= render 'experience_fields', :f => e_f %>
         <hr />  
       <% end %>
-      <div class='links mb-3'>
-        <%= link_to_add_association 'add experience', f, :experiences, class: 'btn head-btn2 make-white' %>
+      <div class='links mb-3 text-end'>
+        <%= link_to_add_association 'add experience', f, :experiences, class: 'btn btn-outline-danger make-white' %>
       </div>
     </div>
     <div class='text-center' data-turbo='false'><%= f.submit 'add education' ,class: 'btn btn-outline-dark' %></div>
