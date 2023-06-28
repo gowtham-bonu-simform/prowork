@@ -18,14 +18,14 @@
     <%= f.select :country, ['India', 'America', 'Japan', 'China', 'Europe'], {}, class: 'form-control' %>
   </div>
 
-  <div class='row d-flex justify-content-between mt-3'>
+  <div class='row d-flex justify-content-between pt-3'>
     <div class="mb-3 field col-sm-6">
       <%= f.label :start_date, 'Start Date*', class: "form-label" %>
       <%= f.date_field :start_date, class: "form-control", max: Date.today %>
     </div>
 
     <div class="mb-3 field col-sm-6">
-      <%= f.label :end_date, 'End Date/Today( if currently working in the company )*', class: "form-label" %>
+      <%= f.label :end_date, 'End Date/Today( if currently working in company )*', class: "form-label" %>
       <%= f.date_field :end_date, class: "form-control", max: Date.today %>
     </div>
   </div>

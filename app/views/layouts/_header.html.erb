@@ -24,13 +24,13 @@
                 </nav>
               </div>
               <!-- Header-btn -->
-              <div class="header-btn d-none f-right d-lg-block" data-turbo="false">
+              <div class="header-btn d-none f-right d-lg-block text-end" data-turbo="false">
                 <% if current_user.has_role? :freelancer %>
-                <%= link_to "switch to freelancer", freelancer_path, class: 'btn head-btn2 make-white' %> 
+                <%= link_to "switch to freelancer", new_profile_path, class: 'btn btn-outline-danger make-white' %> 
                 <% else %>
-                <%= link_to "become a freelancer?", become_freelancer_path, class: 'btn head-btn2 make-white' %> 
+                <%= link_to "become a freelancer?", new_profile_path, class: 'btn btn-outline-danger make-white' %> 
                 <% end %>
-                <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn head-btn1' %> 
+                <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger make-white mt-1' %> 
               </div>
             </div>
           </div>

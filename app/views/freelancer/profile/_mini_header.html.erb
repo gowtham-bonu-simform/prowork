@@ -14,9 +14,9 @@
             <div class="menu-wrapper">
               <!-- Main-menu -->
               <!-- Header-btn -->
-              <div class="header-btn d-none f-right d-lg-block">
-                <%= link_to 'switch as client', client_path, data: {turbo: false}, class: 'btn head-btn2 make-white'  %>
-                <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn head-btn1' %>
+              <div class="header-btn d-none f-right d-lg-block text-end">
+                <%= link_to 'switch as client', client_posts_path, data: {turbo: false}, class: 'btn btn-outline-danger make-white'  %>
+                <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger make-white mt-1' %>
               </div>
             </div>
           </div>

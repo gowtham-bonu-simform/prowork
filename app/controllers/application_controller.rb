@@ -12,4 +12,12 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:first_name, :last_name, :country, :email, :role, :password, :password_confirmation, :policy)}
       devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:first_name, :last_name, :email, :country, :password, :current_password, :policy)}
     end
+
+    def after_sign_in_path_for(resource)
+      if current_user.has_role? :client
+        client_posts_path
+      elsif current_user.has_role? :freelancer
+        new_profile_path
+      end
+    end
 end

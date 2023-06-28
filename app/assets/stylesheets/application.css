@@ -84,7 +84,13 @@ a{
   border: 1px solid transparent;
 }
 #flash-box{
-  position: absolute;
+    text-align: center;
+    position:fixed; 
+    top: 0px; 
+    left: 0px; 
+    width: 100%;
+    z-index:9999; 
+    border-radius:0px
 }
 .make-white:hover{
   color: white !important;

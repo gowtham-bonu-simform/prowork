@@ -28,11 +28,3 @@ import "popper"
 document.querySelectorAll('form').forEach(function (el) {
   el.dataset.turbo = false
 })
-
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-      const box = document.getElementById('flash-box');
-      console.log(box)
-      box.style.visibility = 'hidden';
-    }, 3000);
-});

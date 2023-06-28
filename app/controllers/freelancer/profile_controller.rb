@@ -8,9 +8,9 @@ class Freelancer::ProfileController < ApplicationController
   def new;  end
 
   def create
-    # debugger
     @profile = current_user.build_profile(profile_params)
     if @profile.save and @current_page == 'info'
+      current_user.add_role :freelancer
       redirect_to experiences_profile_path
     else
       flash.now[:alert] = 'info is invalid!'
@@ -21,7 +21,6 @@ class Freelancer::ProfileController < ApplicationController
   def edit; end
 
   def update
-    # debugger
     if @profile.update(profile_params)
       case @current_page
       when 'info'
@@ -33,7 +32,7 @@ class Freelancer::ProfileController < ApplicationController
       when 'certifications'
         redirect_to languages_profile_path
       when 'languages'
-        redirect_to root_path
+        redirect_to profile_path
       end
     else
       case @current_page
@@ -84,7 +83,7 @@ class Freelancer::ProfileController < ApplicationController
     def profile_params
       @current_page = params.require(:profile).permit(:current_page)['current_page']
       params.require(:profile).permit(:professional_role, :bio, :hourly_rate, :postal_code, :phone, :country, :street_address, :city, :state, :skill_list,
-      :service_list, experiences_attributes: [:id, :company, :title, :location, :country, :start_date, :end_date, :description, :_destroy], 
+      :service_list, :avatar, experiences_attributes: [:id, :company, :title, :location, :country, :start_date, :end_date, :description, :_destroy], 
       education_histories_attributes: [:id, :school, :degree, :study_field, :from, :to, :description, :_destroy],
       languages_attributes: [:id, :name, :proficiency, :_destroy], 
       certifications_attributes: [:id, :issue_date, :expiration_date, :cert_id, :certification_url, :_destroy])
