@@ -1,14 +1,19 @@
 <div class='nested-fields'>
-  <div class='row d-flex justify-content-between'>
+    <div class="mb-3 field">
+      <%= f.label :name, 'Certification Name*', class: "form-label" %>
+      <%= f.select :name, ['AWS', 'Python', 'Java'], {}, class: "form-control" %>
+    </div>
+
+  <div class='row d-flex justify-content-between row pt-3'>
     <div class="mb-3 field col-sm-6">
       <%= f.label :issue_date, 'Issue Date*', class: "form-label" %>
       <%= f.date_field :issue_date, class: "form-control", max: Date.today %>
     </div>
 
-  <div class="mb-3 field col-sm-6">
-    <%= f.label :expiration_date, 'Expiration Date(Optional)', class: "form-label" %>
-    <%= f.date_field :expiration_date, class: "form-control" %>
-  </div>
+    <div class="mb-3 field col-sm-6">
+      <%= f.label :expiration_date, 'Expiration Date(Optional)', class: "form-label" %>
+      <%= f.date_field :expiration_date, class: "form-control" %>
+    </div>
   </div>
 
   <div class="mb-3 field">

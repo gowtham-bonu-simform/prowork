@@ -1,7 +1,7 @@
 class Certification < ApplicationRecord
   belongs_to :profile
 
-  validates :issue_date, presence: true
+  validates :issue_date, :name, presence: true
   validates :cert_id, uniqueness: true
   validate :valid_url, if: ->{ !certification_url.blank? }
   validate :date_comparison, if: -> { expiration_date and issue_date }

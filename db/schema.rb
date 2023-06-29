@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_122813) do
 
   create_table "certifications", force: :cascade do |t|
     t.date "issue_date", null: false
+    t.string "name", null: false
     t.date "expiration_date"
     t.string "cert_id"
     t.string "certification_url"

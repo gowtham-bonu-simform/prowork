@@ -21,6 +21,7 @@ class Freelancer::ProfileController < ApplicationController
   def edit; end
 
   def update
+    #debugger
     if @profile.update(profile_params)
       case @current_page
       when 'info'
@@ -86,7 +87,7 @@ class Freelancer::ProfileController < ApplicationController
       :service_list, :avatar, experiences_attributes: [:id, :company, :title, :location, :country, :start_date, :end_date, :description, :_destroy], 
       education_histories_attributes: [:id, :school, :degree, :study_field, :from, :to, :description, :_destroy],
       languages_attributes: [:id, :name, :proficiency, :_destroy], 
-      certifications_attributes: [:id, :issue_date, :expiration_date, :cert_id, :certification_url, :_destroy])
+      certifications_attributes: [:id, :name, :issue_date, :expiration_date, :cert_id, :certification_url, :_destroy])
     end
 
     def current_profile

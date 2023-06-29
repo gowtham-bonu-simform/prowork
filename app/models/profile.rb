@@ -1,5 +1,4 @@
 class Profile < ApplicationRecord
-  
   validates :professional_role, :bio, :hourly_rate, :phone, :country, :street_address, :city, :state, :skill_list, :service_list, presence: true
   validates :professional_role, length: {minimum: 4}
   validates :bio, length: {minimum: 100}
@@ -16,6 +15,8 @@ class Profile < ApplicationRecord
   has_one_attached :avatar
   accepts_nested_attributes_for :experiences, :education_histories, :certifications, :languages, reject_if: :all_blank, allow_destroy: true
   acts_as_taggable_on :skills, :services
+
+  delegate :first_name, :last_name, to: :user
 
   private
 
